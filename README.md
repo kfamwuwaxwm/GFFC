@@ -58,7 +58,7 @@ Github Followers Following Check
 #### [ 5 / 5 ] Execution Results
 - Python collecting_GFFC.py
 
-![](https://github.com/ENNP/GFFC/blob/main/img/5.png)
+![](https://github.com/ENNP/GFFC/blob/main/img/6.png)
 
 <br>
 
