@@ -1,3 +1,4 @@
+from ast import literal_eval
 import os
 
 
@@ -41,9 +42,8 @@ def check_my_person(user_id, count_following, count_followers):
 	p_following_name = open(check_following_name,"r")
 
 
-	#following_dic = {}
 
-	following_dic = "{"
+	following_dic = '{'
 
 	for i in range(0,count_following + 1):
 
@@ -58,10 +58,11 @@ def check_my_person(user_id, count_following, count_followers):
 
 			#following_dic = {page:following_id}
 
-			following_dic += '"' + page
-			following_dic += '":"' + following_id
-			following_dic += ","
+			following_dic += "'" + page
+			following_dic += "':'" + following_id
+			following_dic += "',"
 
+		# count_following != real count_following
                 except IndexError:
 
                         pass
@@ -70,9 +71,18 @@ def check_my_person(user_id, count_following, count_followers):
 
 	#del following_array[0]
 
-	following_dic = following_dic[0] + following_dic[42:-1] + "}"
+	following_dic = following_dic[0] + following_dic[43:-1] + '}'
+
+	following_dic = literal_eval(following_dic)
 
 	print following_dic
+
+	print type(following_dic)
+
+	#print following_dic
+
+
+
 
 
 
@@ -80,20 +90,45 @@ def check_my_person(user_id, count_following, count_followers):
 
 	for i in range(0,count_followers + 1):
 
-		#followers_array.append(p_followers_name.readline()[4:].replace("\n",""))
 
 		try:
 
-                        followers_array.append(p_followers_name.readline().split("] ")[1].replace("\n",""))
+                        prepare_array_v1 = p_followers_name.readline().split("] ")
 
+			followers_id = prepare_array_v1[1].replace("\n","")
+
+			followers_array.append(followers_id)
+
+		# count_followers != real count_followers
                 except IndexError:
 
                         pass
 
-
 	p_followers_name.close()
 
 	del followers_array[0]
+
+
+	#print followers_array
+
+
+
+
+	result_print = ""
+
+	for page, following_id  in following_dic.items():
+
+		if following_id in followers_array:
+
+			result_print += "    | yes |||||||| Page = " + str(page) + " | " + following_id + "\n"
+
+		else:
+
+			result_print += "    | $$ no $$ ||| Page = " + str(page) + " | " + following_id + "\n"
+
+		#print page , following_id + "\n"
+
+	#print result_print
 
 
 
