@@ -1,4 +1,5 @@
-from ast import literal_eval
+#from ast import literal_eval
+import json
 import os
 
 
@@ -43,7 +44,7 @@ def check_my_person(user_id, count_following, count_followers):
 
 
 
-	following_dic = '{'
+	following_dic = '"{'
 
 	for i in range(0,count_following + 1):
 
@@ -71,9 +72,9 @@ def check_my_person(user_id, count_following, count_followers):
 
 	#del following_array[0]
 
-	following_dic = following_dic[0] + following_dic[43:-1] + '}'
+	following_dic = following_dic[0] + following_dic[43:-1] + '}"'
 
-	following_dic = literal_eval(following_dic)
+	following_dic = json.loads(following_dic)
 
 	print following_dic
 
