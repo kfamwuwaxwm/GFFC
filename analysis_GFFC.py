@@ -41,16 +41,38 @@ def check_my_person(user_id, count_following, count_followers):
 	p_following_name = open(check_following_name,"r")
 
 
-	following_array = []
+	#following_dic = {}
+
+	following_dic = "{"
 
 	for i in range(0,count_following + 1):
 
-		following_array.append(p_following_name.readline()[4:].replace("\n",""))
+
+		try:
+
+                        prepare_array_v1 = p_following_name.readline().split("] ")
+
+			page = prepare_array_v1[0].replace("[","")
+
+			following_id = prepare_array_v1[1].replace("\n","")
+
+			#following_dic = {page:following_id}
+
+			following_dic += '"' + page
+			following_dic += '":"' + following_id
+			following_dic += ","
+
+                except IndexError:
+
+                        pass
 
 	p_following_name.close()
 
-	del following_array[0]
+	#del following_array[0]
 
+	following_dic = following_dic[0] + following_dic[42:-1] + "}"
+
+	print following_dic
 
 
 
@@ -58,7 +80,16 @@ def check_my_person(user_id, count_following, count_followers):
 
 	for i in range(0,count_followers + 1):
 
-		followers_array.append(p_followers_name.readline()[4:].replace("\n",""))
+		#followers_array.append(p_followers_name.readline()[4:].replace("\n",""))
+
+		try:
+
+                        followers_array.append(p_followers_name.readline().split("] ")[1].replace("\n",""))
+
+                except IndexError:
+
+                        pass
+
 
 	p_followers_name.close()
 
@@ -66,35 +97,7 @@ def check_my_person(user_id, count_following, count_followers):
 
 
 
-	following_person = 1
-	page = 1
-	result_print = "\n\n\n  [ " + str(page) + " ] Page | https://github.com/" + user_id + "?tab=following&page=" + str(page) + "\n"
-	for following_name in following_array:
-
-		if following_person == 51:
-
-			following_person = 1
-			page += 1
-			result_print += "\n\n\n  [ " + str(page) + " ] Page | https://github.com/" + user_id + "?tab=following&page=" + str(page) + "\n"
-
-
-		else:
-			pass
-
-
-		if following_name in followers_array:
-
-			result_print += "    yes " + following_name + "\n"
-
-		else:
-
-			result_print += "    [ no ] " + following_name + "\n"
-
-
-		following_person += 1
-
-
-
+	'''
 	result_print += "\n\n\n"
 
 	os.system("rm -rf ./result_GFFC/" + user_id + "-result.db")
@@ -106,7 +109,7 @@ def check_my_person(user_id, count_following, count_followers):
 	f.close()
 
 	print "\n\n    [ Done ] Check the File -> ./result_GFFC/" + user_id + "-result.db\n\n"
-
+	'''
 
 
 
