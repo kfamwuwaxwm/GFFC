@@ -82,17 +82,13 @@ def check_my_person(user_id, count_following, count_followers):
 			pass
 
 
-		for followers_array_2 in followers_array:
+		if following_name in followers_array:
 
-			if following_name == followers_array_2:
+			result_print += "    yes " + following_name + "\n"
 
-				result_print += "    yes " + following_name + "\n"
-				
-				
-			else:
+		else:
 
-				result_print += "    [ no ] " + following_name + "\n"
-				
+			result_print += "    [ no ] " + following_name + "\n"
 
 
 		following_person += 1
