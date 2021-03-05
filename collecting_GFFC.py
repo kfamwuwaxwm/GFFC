@@ -92,8 +92,8 @@ def followers(user_id, result_followers, rsp_followers, dash):
 
 		for i in range(1,f):
 
-			follower = rsp_1[i].split("</span>")[0]
-			result_followers += "[" + str(cnt) + "] " + follower + "\n"
+			followers = rsp_1[i].split("</span>")[0]
+			result_followers += "[" + str(cnt) + "] " + followers + "\n"
 
 
 		rsp_2 = rsp.split(span_v2)
@@ -102,8 +102,8 @@ def followers(user_id, result_followers, rsp_followers, dash):
 
 		for i in range(1,f):
 
-			follower = rsp_2[i].split("</span>")[0]
-			result_followers += "[" + str(cnt) + "] " + follower + "\n"
+			followers = rsp_2[i].split("</span>")[0]
+			result_followers += "[" + str(cnt) + "] " + followers + "\n"
 
 	print "\n\n"
 	return result_followers, followers_pg
@@ -135,8 +135,8 @@ def following(user_id, result_following, rsp_following, followers_pg, dash):
 
 		for i in range(1,f):
 
-			follower = rsp_1[i].split("</span>")[0]
-			result_following += "[" + str(cnt) + "] " + follower + "\n"
+			folloing = rsp_1[i].split("</span>")[0]
+			result_following += "[" + str(cnt) + "] " + folloing + "\n"
 
 
 		rsp_2 = rsp.split(span_v2)
@@ -145,8 +145,8 @@ def following(user_id, result_following, rsp_following, followers_pg, dash):
 
 		for i in range(1,f):
 
-			follower = rsp_2[i].split("</span>")[0]
-			result_following += "[" + str(cnt) + "] " + follower + "\n"
+			following = rsp_2[i].split("</span>")[0]
+			result_following += "[" + str(cnt) + "] " + following + "\n"
 
 
 
