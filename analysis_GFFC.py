@@ -87,11 +87,12 @@ def check_my_person(user_id, count_following, count_followers):
 			if following_name == followers_array_2:
 
 				result_print += "    yes " + following_name + "\n"
-				break
+				
+				
 			else:
 
 				result_print += "    [ no ] " + following_name + "\n"
-				break
+				
 
 
 		following_person += 1
