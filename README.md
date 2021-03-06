@@ -62,26 +62,28 @@ Github Followers Following Check
 
 <br>
 
-- Python analysis_GFFC.py ( yes = FFF , [ no ] = No FFF ) / `FFF == Follow For Follow == Follow each other`
+- Python analysis_GFFC.py ( yes = FFF , [ no ] = No FFF )
+  - `FFF == Follow For Follow == Follow each other`
+  - OK || no , Page , Github_id
 ```
-  [ 1 ] Page | https://github.com/ennp?tab=following&page=1
-    yes Github_id
-    yes Github_id
-    [ no ] Github_id
-    yes Github_id
-    [ no ] Github_id
-    yes Github_id
-    [ no ] Github_id
-    [ no ] Github_id
-    
-[ 2 ] Page | https://github.com/ennp?tab=following&page=2
-    yes Github_id
-    [ no ] Github_id
-    yes Github_id
-    yes Github_id
-    yes Github_id
-    yes Github_id
-    yes Github_id
-    [ no ] Github_id
-    [ no ] Github_id
+      no     1   Github_id
+    [ OK ]   1   Github_id
+      no     1   Github_id
+      no     1   Github_id
+      no     1   Github_id
+      no     1   Github_id
+    [ OK ]   1   Github_id
+             .
+             .
+    [ OK ]   2   Github_id
+    [ OK ]   2   Github_id
+      no     2   Github_id
+    [ OK ]   2   Github_id
+    [ OK ]   2   Github_id
+      no     2   Github_id
+             .
+             .
+      no     3   Github_id
+    [ OK ]   3   Github_id
+    [ OK ]   3   Github_id
 ```
