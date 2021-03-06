@@ -1,4 +1,4 @@
-#from ast import literal_eval
+from ast import literal_eval
 import json
 import os
 
@@ -43,91 +43,147 @@ def check_my_person(user_id, count_following, count_followers):
 	p_following_name = open(check_following_name,"r")
 
 
+	# del First line
+	p_followers_name.readline()
+        p_following_name.readline()
 
-	following_dic = '"{'
 
-	for i in range(0,count_following + 1):
+	following_list = []
+	following_list_v1 = ""
 
+	# if i == 0   ->   ( 0 % 50 ) == 0  ->  range(1,count_following + 2 )
+	for i in range(1,count_following + 2):
 
 		try:
 
-                        prepare_array_v1 = p_following_name.readline().split("] ")
+      		  	prepare_array_v1 = p_following_name.readline().split("] ")
 
-			page = prepare_array_v1[0].replace("[","")
+
+			#print prepare_array_v1
+
+			#following_list = prepare_array_v1
+
+			#page = prepare_array_v1[0].replace("[","")
 
 			following_id = prepare_array_v1[1].replace("\n","")
 
-			#following_dic = {page:following_id}
+			following_list_v1 += following_id + ","
 
-			following_dic += "'" + page
-			following_dic += "':'" + following_id
-			following_dic += "',"
+			if ( i % 50 ) == 0:
 
-		# count_following != real count_following
-                except IndexError:
+				following_list_v2 = following_list_v1[:-1].split(",")
 
-                        pass
+				following_list.append(following_list_v2)
+
+				following_list_v1 = ""
+
+				#print page
+
+	        except IndexError:
+
+			#following_list.append(following_id)
+			pass
+
+
 
 	p_following_name.close()
 
+
+	#print following_list
+
+
+
+
+
+
+
+	#print s
+
+	#print following_list
+
 	#del following_array[0]
 
-	following_dic = following_dic[0] + following_dic[43:-1] + '}"'
+	#following_dic = following_dic[0] + following_dic[42:-1] + '}'
 
-	following_dic = json.loads(following_dic)
+	#following_dic = json.loads(following_dic)
 
-	print following_dic
+	#print following_dic
 
-	print type(following_dic)
+	#print type(following_dic)
 
 	#print following_dic
 
 
 
 
+	followers_list = []
+	followers_list_v1 = ""
 
-
-	followers_array = []
-
-	for i in range(0,count_followers + 1):
-
+	for i in range(1,count_followers + 2):
 
 		try:
 
-                        prepare_array_v1 = p_followers_name.readline().split("] ")
+      		  	prepare_array_v1 = p_followers_name.readline().split("] ")
+
+			#print prepare_array_v1
+
+			#followers_list = prepare_array_v1
+
+			page = prepare_array_v1[0].replace("[","")
 
 			followers_id = prepare_array_v1[1].replace("\n","")
 
-			followers_array.append(followers_id)
+			followers_list_v1 += followers_id + ","
 
-		# count_followers != real count_followers
-                except IndexError:
+			if ( i % 50 ) == 0:
 
-                        pass
+				followers_list_v2 = followers_list_v1[:-1].split(",")
+
+				followers_list.append(followers_list_v2)
+
+				followers_list_v1 = ""
+
+				#print page
+
+	        except IndexError:
+
+			#followers_list.append(followers_id)
+			pass
+
+
 
 	p_followers_name.close()
 
-	del followers_array[0]
+	#print followers_list
 
 
-	#print followers_array
+
+
 
 
 
 
 	result_print = ""
 
-	for page, following_id  in following_dic.items():
+	#for i in (1, count_following +2 ):
 
-		if following_id in followers_array:
+	for i in range(0, len(following_list)):
 
-			result_print += "    | yes |||||||| Page = " + str(page) + " | " + following_id + "\n"
+		for j in range(0, len(following_list[i])):
 
-		else:
+			print following_list[i][j]
+			print i
 
-			result_print += "    | $$ no $$ ||| Page = " + str(page) + " | " + following_id + "\n"
+			if following_list[i][j] in followers_list[i]:
 
-		#print page , following_id + "\n"
+				pass
+				#print "Yes " + following_list[i][j] + "\n"
+
+			else:
+				pass
+				#print "No " + following_list[i][j] + "\n"
+
+
 
 	#print result_print
 
