@@ -1,5 +1,3 @@
-from ast import literal_eval
-import json
 import os
 
 
@@ -42,154 +40,106 @@ def check_my_person(user_id, count_following, count_followers):
 	p_followers_name = open(check_followers_name,"r")
 	p_following_name = open(check_following_name,"r")
 
-
-	# del First line
 	p_followers_name.readline()
         p_following_name.readline()
 
+	following_array = []
+	following_page = []
 
-	following_list = []
-	following_list_v1 = ""
-
-	# if i == 0   ->   ( 0 % 50 ) == 0  ->  range(1,count_following + 2 )
-	for i in range(1,count_following + 2):
+	for i in range(0,count_following + 1):
 
 		try:
 
-      		  	prepare_array_v1 = p_following_name.readline().split("] ")
+			prepare_array_v1 = p_following_name.readline().split("] ")
 
+			page = prepare_array_v1[0].replace("[","")
 
-			#print prepare_array_v1
-
-			#following_list = prepare_array_v1
-
-			#page = prepare_array_v1[0].replace("[","")
+			following_page.append(page)
 
 			following_id = prepare_array_v1[1].replace("\n","")
 
-			following_list_v1 += following_id + ","
+			following_array.append(following_id)
 
-			if ( i % 50 ) == 0:
 
-				following_list_v2 = following_list_v1[:-1].split(",")
+		except IndexError:
 
-				following_list.append(following_list_v2)
-
-				following_list_v1 = ""
-
-				#print page
-
-	        except IndexError:
-
-			#following_list.append(following_id)
+			#following_array.append(following_id)
 			pass
-
 
 
 	p_following_name.close()
 
+	#print len(following_page)
+	#print len(following_array)
 
-	#print following_list
-
-
-
-
-
+	#print following_page
+	#print following_array
 
 
-	#print s
 
-	#print following_list
 
 	#del following_array[0]
 
-	#following_dic = following_dic[0] + following_dic[42:-1] + '}'
-
-	#following_dic = json.loads(following_dic)
-
-	#print following_dic
-
-	#print type(following_dic)
-
-	#print following_dic
+	#print following_array
 
 
 
+	followers_array = []
 
-	followers_list = []
-	followers_list_v1 = ""
-
-	for i in range(1,count_followers + 2):
+	for i in range(0,count_followers + 1):
 
 		try:
 
-      		  	prepare_array_v1 = p_followers_name.readline().split("] ")
-
-			#print prepare_array_v1
-
-			#followers_list = prepare_array_v1
-
-			page = prepare_array_v1[0].replace("[","")
+			prepare_array_v1 = p_followers_name.readline().split("] ")
 
 			followers_id = prepare_array_v1[1].replace("\n","")
 
-			followers_list_v1 += followers_id + ","
+			followers_array.append(followers_id)
 
-			if ( i % 50 ) == 0:
+		except IndexError:
 
-				followers_list_v2 = followers_list_v1[:-1].split(",")
-
-				followers_list.append(followers_list_v2)
-
-				followers_list_v1 = ""
-
-				#print page
-
-	        except IndexError:
-
-			#followers_list.append(followers_id)
 			pass
 
 
 
 	p_followers_name.close()
 
-	#print followers_list
+	#del followers_array[0]
+	#print followers_array
+
+
+
+	following_person = 0
+	page = 1
+	result_print = "\n\n\n  [ " + str(page) + " ] Page | https://github.com/" + user_id + "?tab=following&page=" + str(page) + "\n"
+
+	#print len(following_array)
+	#print following_array
+
+	for i in range(0, len(following_array)):
+
+		following_person += 1
+
+		#print following_name
+		#print followers_array
+
+
+		#if following_array[i] == "benjamn":
+		if following_array[i] in followers_array:
+
+			print following_array[i]
+
+			result_print += "    yes " + following_array[i] + following_page[i] +"\n"
+
+		else:
+
+			result_print += "    [ no ] " + following_array[i] + "\n"
 
 
 
 
 
 
-
-
-	result_print = ""
-
-	#for i in (1, count_following +2 ):
-
-	for i in range(0, len(following_list)):
-
-		for j in range(0, len(following_list[i])):
-
-			print following_list[i][j]
-			print i
-
-			if following_list[i][j] in followers_list[i]:
-
-				pass
-				#print "Yes " + following_list[i][j] + "\n"
-
-			else:
-				pass
-				#print "No " + following_list[i][j] + "\n"
-
-
-
-	#print result_print
-
-
-
-	'''
 	result_print += "\n\n\n"
 
 	os.system("rm -rf ./result_GFFC/" + user_id + "-result.db")
@@ -201,7 +151,7 @@ def check_my_person(user_id, count_following, count_followers):
 	f.close()
 
 	print "\n\n    [ Done ] Check the File -> ./result_GFFC/" + user_id + "-result.db\n\n"
-	'''
+
 
 
 
