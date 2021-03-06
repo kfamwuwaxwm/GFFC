@@ -46,7 +46,7 @@ def check_my_person(user_id, count_following, count_followers):
 	following_array = []
 	following_page = []
 
-	for i in range(0,count_following + 1):
+	for i in range(0,count_following):
 
 		try:
 
@@ -68,6 +68,8 @@ def check_my_person(user_id, count_following, count_followers):
 
 
 	p_following_name.close()
+
+	#del following_page[:-1]
 
 	#print len(following_page)
 	#print len(following_array)
@@ -109,31 +111,33 @@ def check_my_person(user_id, count_following, count_followers):
 
 
 
-	following_person = 0
-	page = 1
-	result_print = "\n\n\n  [ " + str(page) + " ] Page | https://github.com/" + user_id + "?tab=following&page=" + str(page) + "\n"
+	#page = 1
 
 	#print len(following_array)
 	#print following_array
 
-	for i in range(0, len(following_array)):
 
-		following_person += 1
+	result_print = ""
+	for i in range(0, len(following_array)):
+	#for i in range(0, len(following_page)):
 
 		#print following_name
 		#print followers_array
 
+		#result_print += "\n\n\n  [ " + str(following_page[i]) + " ] Page | https://github.com/" + user_id + "?tab=following&page=" + str(following_page[i]) + "\n"
 
 		#if following_array[i] == "benjamn":
 		if following_array[i] in followers_array:
 
-			print following_array[i]
+			#print following_array[i]
 
 			result_print += "    yes " + following_array[i] + following_page[i] +"\n"
 
 		else:
 
-			result_print += "    [ no ] " + following_array[i] + "\n"
+			result_print += "    [ no ] " + following_array[i] + following_page[i] +"\n"
+
+
 
 
 
