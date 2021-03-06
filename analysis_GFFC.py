@@ -1,4 +1,7 @@
+# -*- coding: utf-8 -*-
 import os
+
+
 
 def user_id():
 
@@ -27,6 +30,8 @@ def count_all(user_id):
 
 
 
+
+
 def check_my_person(user_id, count_following, count_followers):
 
 
@@ -41,6 +46,7 @@ def check_my_person(user_id, count_following, count_followers):
 
 	following_array = []
 	following_page = []
+
 	for i in range(0,count_following):
 
 		try:
@@ -48,21 +54,41 @@ def check_my_person(user_id, count_following, count_followers):
 			prepare_array_v1 = p_following_name.readline().split("] ")
 
 			page = prepare_array_v1[0].replace("[","")
+
 			following_page.append(page)
 
 			following_id = prepare_array_v1[1].replace("\n","")
+
 			following_array.append(following_id)
 
 
 		except IndexError:
+
+			#following_array.append(following_id)
 			pass
 
 
 	p_following_name.close()
 
+	#del following_page[:-1]
+
+	#print len(following_page)
+	#print len(following_array)
+
+	#print following_page
+	#print following_array
+
+
+
+
+	#del following_array[0]
+
+	#print following_array
+
 
 
 	followers_array = []
+
 	for i in range(0,count_followers + 1):
 
 		try:
@@ -70,28 +96,67 @@ def check_my_person(user_id, count_following, count_followers):
 			prepare_array_v1 = p_followers_name.readline().split("] ")
 
 			followers_id = prepare_array_v1[1].replace("\n","")
+
 			followers_array.append(followers_id)
 
-
 		except IndexError:
+
 			pass
 
 
 
 	p_followers_name.close()
 
+	#del followers_array[0]
+	#print followers_array
 
 
-	result_print = "\n\n\n"
+
+	#page = 1
+
+	#print len(following_array)
+	#print following_array
+
+
+	result_print = ""
 	for i in range(0, len(following_array)):
+	#for i in range(0, len(following_page)):
 
+		#print following_name
+		#print followers_array
+
+		#result_print += "\n\n\n  [ " + str(following_page[i]) + " ] Page | https://github.com/" + user_id + "?tab=following&page=" + str(following_page[i]) + "\n"
+
+		#if following_array[i] == "benjamn":
+		#line = " █ "
 		if following_array[i] in followers_array:
 
+			#print following_array[i]
+
+			#result_print += "  ||        || " + following_array[i] + " || " + following_page[i] + " || [ OK ] ||\n"
+			#result_print += "  || [ OK ] || [ NO ] || " + following_array[i] + " || " + following_page[i] + " ||        ||\n"
+			#result_print += "  █ OK  █        █ " + following_page[i] + " || "  + following_array[i] + " || " + "\n"
+
+			#result_print += "  ┃ OK ┃ No ┃      " + following_page[i] + " || "  + following_array[i] + " || " + "\n"
+
+			#result_print += line + "[ OK ]" + line + "[    ]" + line + following_page[i] + line + following_array[i] + "\n"
+
 			result_print += "    [ OK ]   " + following_page[i] + "   " + following_array[i] + "\n"
+
 
 		else:
 
 			result_print += "      no     " + following_page[i] + "   " + following_array[i] + "\n"
+
+
+
+			#result_print += "  || [ OK ] || [ NO ] || " + following_array[i] + " || " + following_page[i] + " ||        ||\n"
+
+			#result_print += "  █      █  NO  █ " + following_page[i] + " || "  + following_array[i] + " || " + "\n"
+
+
+
+
 
 
 
