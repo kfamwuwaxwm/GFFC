@@ -129,7 +129,6 @@ def check_my_person(user_id, count_following, count_followers):
 
 		#if following_array[i] == "benjamn":
 		#line = " █ "
-		line = " ┃ "
 		if following_array[i] in followers_array:
 
 			#print following_array[i]
@@ -140,11 +139,16 @@ def check_my_person(user_id, count_following, count_followers):
 
 			#result_print += "  ┃ OK ┃ No ┃      " + following_page[i] + " || "  + following_array[i] + " || " + "\n"
 
-			result_print += line + "[ OK ]" + line + "[    ]" + line + following_page[i] + line + following_array[i] + "\n"
+			#result_print += line + "[ OK ]" + line + "[    ]" + line + following_page[i] + line + following_array[i] + "\n"
+
+			result_print += "    [ OK ]   " + following_page[i] + "   " + following_array[i] + "\n"
+
 
 		else:
 
-			result_print += line + "[    ]" + line + "[ NO ]" + line + following_page[i] + line + following_array[i] + "\n"
+			result_print += "      no     " + following_page[i] + "   " + following_array[i] + "\n"
+
+
 
 			#result_print += "  || [ OK ] || [ NO ] || " + following_array[i] + " || " + following_page[i] + " ||        ||\n"
 
