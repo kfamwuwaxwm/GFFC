@@ -54,14 +54,14 @@ def check_my_person(user_id, count_following, count_followers):
 			following_array.append(following_id)
 
 
-		except IndexError:			
+		except IndexError:
 			pass
 
-		
+
 	p_following_name.close()
 
 
-	
+
 	followers_array = []
 	for i in range(0,count_followers + 1):
 
@@ -72,7 +72,7 @@ def check_my_person(user_id, count_following, count_followers):
 			followers_id = prepare_array_v1[1].replace("\n","")
 			followers_array.append(followers_id)
 
-			
+
 		except IndexError:
 			pass
 
@@ -80,9 +80,9 @@ def check_my_person(user_id, count_following, count_followers):
 
 	p_followers_name.close()
 
-	
 
-	result_print = ""
+
+	result_print = "\n\n\n"
 	for i in range(0, len(following_array)):
 
 		if following_array[i] in followers_array:
@@ -94,8 +94,8 @@ def check_my_person(user_id, count_following, count_followers):
 			result_print += "      no     " + following_page[i] + "   " + following_array[i] + "\n"
 
 
-			
-			
+
+
 	result_print += "\n\n\n"
 
 	os.system("rm -rf ./result_GFFC/" + user_id + "-result.db")
