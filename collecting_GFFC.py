@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import requests
 import os
+import time
 
 global base_url
 global tag_followers
@@ -68,7 +69,7 @@ def dashboard(user_id, rsp_followers, rsp_following):
 def followers(user_id, result_followers, rsp_followers, dash):
 
 	followers_cnt = int(rsp_followers)
-	pre_cnt = ( followers_cnt / 50 ) + 2
+	pre_cnt = ( followers_cnt / 50 ) + 1
 	cnt_print = pre_cnt - 1
 
 	for cnt in range(1,pre_cnt):
@@ -84,6 +85,8 @@ def followers(user_id, result_followers, rsp_followers, dash):
 
 		url = base_url + user_id + tag_followers + str(cnt)
 		response = requests.get(url , headers=headers )
+
+		time.sleep(1)
 
 		rsp = response.text
 		rsp_1 = rsp.split(span_v1)
@@ -127,6 +130,8 @@ def following(user_id, result_following, rsp_following, followers_pg, dash):
 		print "  [+] " + str(cnt) + " / " + str(cnt_print) + " [ Max: " + str(cnt_print) + " ]"
 		url = base_url + user_id + tag_following + str(cnt)
 		response = requests.get(url , headers=headers )
+
+		time.sleep(1)
 
 		rsp = response.text
 		rsp_1 = rsp.split(span_v1)
