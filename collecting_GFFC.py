@@ -15,7 +15,7 @@ global span_v2
 base_url = 'https://github.com/'
 tag_followers = "?tab=followers&page="
 tag_following = "?tab=following&page="
-headers = {"User-Agent": "GFFL/2.1.3"}
+headers = {"User-Agent": "GFFL/2.2.3"}
 span_v1 = '''<span class="Link--secondary">'''
 span_v2 = '''<span class="Link--secondary pl-1">'''
 logo = '''
