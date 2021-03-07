@@ -69,7 +69,7 @@ def dashboard(user_id, rsp_followers, rsp_following):
 def followers(user_id, result_followers, rsp_followers, dash):
 
 	followers_cnt = int(rsp_followers)
-	pre_cnt = ( followers_cnt / 50 ) + 1
+	pre_cnt = ( followers_cnt / 50 ) + 2
 	cnt_print = pre_cnt - 1
 
 	for cnt in range(1,pre_cnt):
@@ -86,6 +86,7 @@ def followers(user_id, result_followers, rsp_followers, dash):
 		url = base_url + user_id + tag_followers + str(cnt)
 		response = requests.get(url , headers=headers )
 
+		# If you don't sleep, it's a DOS attack on the GitHub.
 		time.sleep(1)
 
 		rsp = response.text
@@ -131,6 +132,7 @@ def following(user_id, result_following, rsp_following, followers_pg, dash):
 		url = base_url + user_id + tag_following + str(cnt)
 		response = requests.get(url , headers=headers )
 
+		# If you don't sleep, it's a DOS attack on the GitHub.
 		time.sleep(1)
 
 		rsp = response.text
