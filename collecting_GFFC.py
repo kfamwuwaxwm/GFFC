@@ -129,6 +129,7 @@ def following(user_id, result_following, rsp_following, followers_pg, dash):
 
 		print "\n\n  ## following Progress ##"
 		print "  [+] " + str(cnt) + " / " + str(cnt_print) + " [ Max: " + str(cnt_print) + " ]"
+
 		url = base_url + user_id + tag_following + str(cnt)
 		response = requests.get(url , headers=headers )
 
