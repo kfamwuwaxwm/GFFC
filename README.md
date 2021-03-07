@@ -18,7 +18,7 @@ Github Followers Following Check
 
 #### [ 3 / 5 ] Please Check class before using it.
 - After months of monitoring the GitHub update, it was confirmed that the class changed periodically.
-- If changed, only the variables [span_v1 and span_v2](https://github.com/ENNP/GFFC/blob/main/collecting_GFFC.py#L18) need to be changed.
+- If changed, only the variables [ Check "global span_v1 and span_v2" collecting_GFFC.py ] need to be changed.
 
 <br>
 
