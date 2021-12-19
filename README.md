@@ -89,8 +89,3 @@ Github Followers Following Check
 ```
 
 <br> 
-
-#### Contributors
-- [ENNP](https://github.com/ENNP)
-
-<br>
