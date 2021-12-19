@@ -5,46 +5,18 @@ Github Followers Following Check
 
 <br>
 
-#### [ 1 / 5 ] Program Introduction
+#### [ 1 / 4 ] Program Introduction
 - You can Check FFF [ Follow For Follow ] in the GitHub.
 - `FFF == Follow For Follow == Follow each other`
 
 <br>
 
-#### [ 2 / 5 ] LICENSE
+#### [ 2 / 4 ] LICENSE
 - [MIT License](https://github.com/ENNP/GFFC/blob/main/LICENSE)
 
 <br>
 
-#### [ 3 / 5 ] Please Check class before using it.
-- After months of monitoring the GitHub update, it was confirmed that the class changed periodically.
-- If changed, only the variables [ Check "global span_v1 and span_v2" collecting_GFFC.py ] need to be changed.
-
-<br>
-
-- [ Span_v1 ]
-
-![](https://github.com/ENNP/GFFC/blob/main/img/3.png)
-
-<br>
-
-![](https://github.com/ENNP/GFFC/blob/main/img/4.png)
-
-<br><br>
-
-- [ Span_v2 ]
-
-![](https://github.com/ENNP/GFFC/blob/main/img/1.png)
-
-<br>
-
-![](https://github.com/ENNP/GFFC/blob/main/img/2.png)
-
-<br>
-
-
-
-#### [ 4 / 5 ] How to run
+#### [ 3 / 4 ] How to run
 - First
   - Python collecting_GFFC.py
 
@@ -55,7 +27,7 @@ Github Followers Following Check
 
 <br>
 
-#### [ 5 / 5 ] Execution Results
+#### [ 4 / 4 ] Execution Results
 - Python collecting_GFFC.py
 
 ![](https://github.com/ENNP/GFFC/blob/main/img/6.png)
