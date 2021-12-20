@@ -34,8 +34,8 @@ Github Followers Following Check
 
 <br>
 
-- Python analysis_GFFC.py ( yes = FFF , [ no ] = No FFF )
-  - `FFF == Follow For Follow == Follow each other`
+- Python analysis_GFFC.py 
+  - [ OK ] = Yes, Your follower
   - OK || no , Page , Github_id
 ```
       no     1   Github_id
